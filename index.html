@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linh V Nguyen — AI & Data Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0e0e0e;
+      --paper:     #f5f0e8;
+      --cream:     #ede7d9;
+      --accent:    #c8002a;
+      --accent2:   #e8a020;
+      --muted:     #6b6255;
+      --rule:      #c9bfaf;
+      --col: 1140px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── MASTHEAD ─────────────────────────────────── */
+    .masthead {
+      border-bottom: 3px solid var(--ink);
+      padding: 12px 0 0;
+      position: sticky;
+      top: 0;
+      background: var(--paper);
+      z-index: 100;
+    }
+    .masthead-top {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .masthead-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .masthead-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      line-height: 1;
+      text-align: center;
+    }
+    .masthead-name span { color: var(--accent); }
+    .masthead-tagline {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+    }
+    .masthead-nav {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      margin-top: 10px;
+      max-width: var(--col);
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px;
+      overflow-x: auto;
+    }
+    .masthead-nav a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 8px 20px 8px 0;
+      white-space: nowrap;
+      position: relative;
+      transition: color .2s;
+    }
+    .masthead-nav a:hover { color: var(--accent); }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 60px 24px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0;
+      align-items: start;
+    }
+    .hero-divider { background: var(--rule); margin: 0 28px; }
+    .hero-lead {
+      grid-column: 1 / 4;
+      padding-right: 40px;
+      border-right: 1px solid var(--rule);
+    }
+    .hero-category {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 3px 8px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .hero-excerpt {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .hero-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity .2s;
+    }
+    .hero-link:hover { opacity: .7; }
+    .hero-sidebar { padding-left: 28px; }
+    .hero-sidebar .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* ── SECTION LABEL ────────────────────────────── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── DIVIDER ──────────────────────────────────── */
+    .rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+    .rule-bold { border: none; border-top: 2px solid var(--ink); margin: 0; }
+    .rule-accent { border: none; border-top: 3px solid var(--accent); margin: 0; }
+
+    /* ── TICKER ───────────────────────────────────── */
+    .ticker-wrap {
+      background: var(--ink);
+      color: var(--paper);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 8px 0;
+      margin: 28px 0;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-inner span {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-right: 60px;
+    }
+    .ticker-inner span::before {
+      content: '◆';
+      color: var(--accent);
+      margin-right: 60px;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── GRID SECTION ─────────────────────────────── */
+    .section-wrap {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin: 40px 0 20px;
+      border-top: 3px solid var(--ink);
+      padding-top: 10px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .section-header .section-label { margin-left: auto; }
+
+    /* ── CARD GRID ────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .card {
+      padding: 24px 24px 24px 0;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      transition: background .2s;
+    }
+    .card:nth-child(3n) { border-right: none; padding-right: 0; }
+    .card:nth-child(3n+2) { padding-left: 24px; }
+    .card:nth-child(3n+3) { padding-left: 24px; }
+    .card:hover { background: var(--cream); }
+    .card-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 2px 7px;
+      margin-bottom: 10px;
+    }
+    .tag-ai    { background: var(--accent); }
+    .tag-ml    { background: #1a6b3a; }
+    .tag-data  { background: #1a4d7a; }
+    .tag-econ  { background: #7a3a1a; }
+    .tag-fin   { background: #4a1a7a; }
+    .card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--rule);
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .card:nth-child(3n) .card-num { right: 0; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .card-read {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s;
+    }
+    .card-read::after { content: '→'; }
+    .card-read:hover { gap: 10px; }
+
+    /* ── FEATURED ROW ─────────────────────────────── */
+    .featured-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+    .featured-main {
+      padding: 24px 32px 24px 0;
+      border-right: 1px solid var(--rule);
+    }
+    .featured-main .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .featured-side {
+      padding: 24px 0 24px 28px;
+    }
+    .featured-side .card-title {
+      font-size: 1rem;
+    }
+
+    /* ── ABOUT STRIP ──────────────────────────────── */
+    .about-strip {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 60px 0;
+      margin: 50px 0;
+    }
+    .about-inner {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .about-heading em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+    .about-body {
+      color: #c9c0b0;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: .06em;
+      border: 1px solid #444;
+      color: #c9c0b0;
+      padding: 4px 12px;
+    }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    #contact {
+      max-width: var(--col);
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .contact-box {
+      border: 2px solid var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .contact-left {
+      padding: 48px;
+      border-right: 2px solid var(--ink);
+    }
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .contact-left h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .contact-left p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .contact-right {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      justify-content: center;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--ink);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .contact-info { flex: 1; }
+    .contact-info .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .contact-info a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color .2s, border-color .2s;
+      word-break: break-all;
+    }
+    .contact-info a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: #6b6255;
+      padding: 24px;
+      text-align: center;
+    }
+    footer span {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-lead { border-right: none; padding-right: 0; grid-column: 1; }
+      .hero-divider { display: none; }
+      .hero-sidebar { padding-left: 0; border-top: 1px solid var(--rule); padding-top: 28px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .card:nth-child(2n) { border-right: none; }
+      .card:nth-child(3n) { border-right: 1px solid var(--rule); }
+      .featured-row { grid-template-columns: 1fr; }
+      .featured-main { border-right: none; padding-right: 0; }
+      .featured-side { padding-left: 0; border-top: 1px solid var(--rule); }
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .contact-box { grid-template-columns: 1fr; }
+      .contact-left { border-right: none; border-bottom: 2px solid var(--ink); }
+      .masthead-top { flex-direction: column; gap: 8px; text-align: center; }
+      .masthead-tagline { text-align: center; }
+    }
+    @media (max-width: 580px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .card { border-right: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+      .contact-left, .contact-right { padding: 28px 24px; }
+    }
+
+    /* ── SCROLL REVEAL ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="masthead-date" id="live-date"></div>
+      <div class="masthead-name">LINH V <span>NGUYEN</span></div>
+      <div class="masthead-tagline">AI · Data Science · Ideas</div>
+    </div>
+    <nav class="masthead-nav">
+      <a href="#writing">Writing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="https://medium.com/@linhvnguyen" target="_blank" rel="noopener">Medium ↗</a>
+    </nav>
+  </header>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="ticker"></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="writing">
+    <div class="hero-lead reveal">
+      <span class="hero-category">Featured</span>
+      <h1 class="hero-title">The $0.25 Tax That Changed Everything</h1>
+      <p class="hero-excerpt">A deep dive into how a seemingly tiny fiscal lever reshapes entire economies — and what it reveals about the hidden architecture of incentives we live inside.</p>
+      <a class="hero-link" href="https://ai.gopubby.com/the-0-25-tax-that-changed-everything-6ee4c55356a5" target="_blank" rel="noopener">Read on Medium</a>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-sidebar reveal" style="transition-delay:.15s">
+      <div class="section-label">Also Trending</div>
+      <div style="display:flex;flex-direction:column;gap:18px;margin-top:16px;">
+        <div style="border-bottom:1px solid var(--rule);padding-bottom:16px;">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Machine Learning</div>
+          <a href="https://ai.gopubby.com/please-help-im-stuck-in-a-local-minimum-and-how-i-climbed-out-3857f9230150" target="_blank" rel="noopener" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.2;display:block;">Please Help, I'm Stuck in a Local Minimum — And How I Climbed Out</a>
+        </div>
+        <div style="border-bottom:1px solid var(--rule);padding-bottom:16px;">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Policy</div>
+          <a href="https://ai.gopubby.com/beyond-the-wall-when-countries-become-experiments-2f8aceb11c43" target="_blank" rel="noopener" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.2;display:block;">Beyond the Wall: When Countries Become Experiments</a>
+        </div>
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">AI</div>
+          <a href="https://ai.gopubby.com/the-day-model-started-acting-strange-8ba16ebe1998" target="_blank" rel="noopener" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.2;display:block;">The Day Model Started Acting Strange</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule-bold" style="max-width:var(--col);margin:0 auto;" />
+
+  <!-- ALL POSTS GRID -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <h2>All Writing</h2>
+      <span class="section-label">8 Articles</span>
+    </div>
+
+    <!-- Featured 2-col row -->
+    <div class="featured-row reveal">
+      <div class="featured-main">
+        <span class="card-tag tag-ml">Machine Learning</span>
+        <div class="card-title">Survival of the Fittest Programs: How Machines Evolve to Solve Problems with Genetic Programming</div>
+        <div class="card-desc">Evolution meets computation. Explore how genetic programming borrows nature's most powerful algorithm to build programs that literally grow, compete, and improve themselves.</div>
+        <a class="card-read" href="https://pub.towardsai.net/survival-of-the-fittest-programs-how-machines-evolve-to-solve-problems-with-genetic-programming-740348256d2e" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="featured-side">
+        <span class="card-tag tag-fin">Finance</span>
+        <div class="card-title">Is Stock Price Prediction a Rabbit Hole? Here's What a Naive Model Taught Me</div>
+        <div class="card-desc">A candid post-mortem on building a stock prediction model — and why the most valuable lesson came from its failures.</div>
+        <a class="card-read" href="https://medium.datadriveninvestor.com/is-stock-price-prediction-a-rabbit-hole-heres-what-a-naive-model-taught-me-0f8914922d77" target="_blank" rel="noopener">Read Article</a>
+      </div>
+    </div>
+
+    <!-- Card grid -->
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="card-num">01</div>
+        <span class="card-tag tag-ml">Machine Learning</span>
+        <div class="card-title">Genetic Algorithms Simplified: A Step-by-Step Example for Beginners</div>
+        <div class="card-desc">Demystifying one of nature's most elegant algorithms. A hands-on walkthrough that makes genetic algorithms click.</div>
+        <a class="card-read" href="https://pub.towardsai.net/genetic-algorithms-simplified-a-step-by-step-example-for-beginners-4ac0e7727a62" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.1s">
+        <div class="card-num">02</div>
+        <span class="card-tag tag-ai">AI</span>
+        <div class="card-title">The Day Model Started Acting Strange</div>
+        <div class="card-desc">A real account of anomalous model behaviour — and what it says about the limits of our intuitions when working with AI systems.</div>
+        <a class="card-read" href="https://ai.gopubby.com/the-day-model-started-acting-strange-8ba16ebe1998" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.2s">
+        <div class="card-num">03</div>
+        <span class="card-tag tag-data">Data Viz</span>
+        <div class="card-title">Simple Yet Powerful: Enhance Potential in Static Data Visualization</div>
+        <div class="card-desc">How to uncover patterns hiding in plain sight. A practical guide to making static charts do more of the heavy lifting.</div>
+        <a class="card-read" href="https://pub.towardsai.net/simple-yet-powerful-enhance-more-potential-in-static-data-visualization-for-observing-patterns-14862ead8c3b" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.05s">
+        <div class="card-num">04</div>
+        <span class="card-tag tag-econ">Economics</span>
+        <div class="card-title">Beyond the Wall: When Countries Become Experiments</div>
+        <div class="card-desc">Using geopolitical divisions as natural experiments to understand what policies truly move the needle on human prosperity.</div>
+        <a class="card-read" href="https://ai.gopubby.com/beyond-the-wall-when-countries-become-experiments-2f8aceb11c43" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.15s">
+        <div class="card-num">05</div>
+        <span class="card-tag tag-ml">Machine Learning</span>
+        <div class="card-title">Please Help, I'm Stuck in a Local Minimum — And How I Climbed Out</div>
+        <div class="card-desc">Part optimization saga, part personal essay. On getting unstuck — in ML and in life — and the tools that actually help.</div>
+        <a class="card-read" href="https://ai.gopubby.com/please-help-im-stuck-in-a-local-minimum-and-how-i-climbed-out-3857f9230150" target="_blank" rel="noopener">Read Article</a>
+      </div>
+      <div class="card reveal" style="transition-delay:.25s">
+        <div class="card-num">06</div>
+        <span class="card-tag tag-econ">Economics</span>
+        <div class="card-title">The $0.25 Tax That Changed Everything</div>
+        <div class="card-desc">Tracing the ripple effects of a micro-level fiscal policy and uncovering the butterfly economics hiding in the details.</div>
+        <a class="card-read" href="https://ai.gopubby.com/the-0-25-tax-that-changed-everything-6ee4c55356a5" target="_blank" rel="noopener">Read Article</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about-strip" id="about">
+    <div class="about-inner">
+      <div>
+        <div class="about-label">About the Author</div>
+        <h2 class="about-heading">Linh V<br/><em>Nguyen.</em></h2>
+      </div>
+      <div>
+        <p class="about-body">
+          I write about the intersection of artificial intelligence, data science, and the ideas that shape our world. My work spans machine learning education, economic analysis, and AI research — always with a focus on making complex concepts genuinely accessible.
+        </p>
+        <p class="about-body" style="margin-top:0">
+          When I'm not writing, I'm building models, running experiments, or thinking about how data-driven thinking can illuminate the questions that matter most.
+        </p>
+        <div class="skill-pills">
+          <span class="skill-pill">Machine Learning</span>
+          <span class="skill-pill">Genetic Algorithms</span>
+          <span class="skill-pill">Data Visualization</span>
+          <span class="skill-pill">AI Research</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Economics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box reveal">
+      <div class="contact-left">
+        <div class="section-label" style="margin-bottom:12px;">Get In Touch</div>
+        <h2>Let's work<br/><em>together.</em></h2>
+        <p style="margin-top:16px;">Whether you have a data science project, a writing collaboration, or simply want to exchange ideas — I'd love to hear from you.</p>
+      </div>
+      <div class="contact-right">
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div class="contact-info">
+            <div class="label">Email</div>
+            <!-- ✏️ Replace with your real email -->
+            <a href="/cdn-cgi/l/email-protection#4d3422383f6328202c24210d28352c203d2128632e2220"><span class="__cf_email__" data-cfemail="e49d8b9196ca8189858d88a4819c8589948881ca878b89">[email&#160;protected]</span></a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">in</div>
+          <div class="contact-info">
+            <div class="label">LinkedIn</div>
+            <!-- ✏️ Replace with your LinkedIn URL -->
+            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">linkedin.com/in/your-profile</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" style="font-size:14px;">GH</div>
+          <div class="contact-info">
+            <div class="label">GitHub</div>
+                  <a href="https://github.com/nvlinhvn" target="_blank" rel="noopener">github.com/nvlinhvn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© <span id="year"></span> Linh V Nguyen — All Rights Reserved &nbsp;·&nbsp; Hosted on <a href="https://nvlinhvn.github.io" target="_blank" rel="noopener">GitHub Pages</a></span>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Live date in masthead
+    const d = new Date();
+    document.getElementById('live-date').textContent =
+      d.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('year').textContent = d.getFullYear();
+
+    // Ticker content
+    const topics = [
+      'Machine Learning','Genetic Algorithms','Data Visualization',
+      'AI Research','Stock Prediction','Optimization Theory',
+      'Economic Policy','Genetic Programming','Statistical Modelling'
+    ];
+    const t = document.getElementById('ticker');
+    const inner = [...topics, ...topics].map(s => `<span>${s}</span>`).join('');
+    t.innerHTML = inner + inner;
+
+    // Scroll reveal
+    const observer = new IntersectionOb
