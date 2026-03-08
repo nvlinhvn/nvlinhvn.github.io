@@ -1,0 +1,64 @@
+# Linh V Nguyen — AI & Data Science Writer
+# https://nvlinhvn.github.io/
+
+## About
+
+Linh V Nguyen is an independent writer and AI/data science practitioner. Articles cover machine learning, genetic algorithms, genetic programming, optimization, causal inference, data visualization, and economics. Published in Towards AI, Data Driven Investor, and AI Advances on Medium.
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/linh-v-989a47a1/
+- GitHub: https://github.com/nvlinhvn
+
+## Topics Covered
+
+- Artificial Intelligence and Machine Learning
+- Genetic Algorithms and Evolutionary Computation
+- Genetic Programming and Symbolic Regression
+- Optimization (gradient descent, local minima, metaheuristics)
+- Causal Inference and Natural Experiments
+- Data Science and Data Visualization
+- Financial Machine Learning and Stock Prediction
+- Economic Policy Analysis
+
+## Published Articles
+
+1. The $0.25 Tax That Changed Everything
+   URL: https://ai.gopubby.com/the-0-25-tax-that-changed-everything-6ee4c55356a5
+   Topics: Economics, Policy, Causal Inference, Second-Order Effects
+   Publisher: AI Advances (Medium)
+
+2. Beyond the Wall: When Countries Become Experiments
+   URL: https://ai.gopubby.com/beyond-the-wall-when-countries-become-experiments-2f8aceb11c43
+   Topics: Policy, Economics, Natural Experiments, Causal Inference
+   Publisher: AI Advances (Medium)
+
+3. Please Help, I'm Stuck in a Local Minimum — And How I Climbed Out
+   URL: https://ai.gopubby.com/please-help-im-stuck-in-a-local-minimum-and-how-i-climbed-out-3857f9230150
+   Topics: Machine Learning, Optimization, Gradient Descent, Engineering
+   Publisher: AI Advances (Medium)
+
+4. Genetic Algorithms Simplified: A Step-by-Step Example for Beginners
+   URL: https://pub.towardsai.net/genetic-algorithms-simplified-a-step-by-step-example-for-beginners-4ac0e7727a62
+   Topics: Genetic Algorithms, Evolutionary Computation, Machine Learning, Beginners
+   Publisher: Towards AI (Medium)
+
+5. The Day the Model Started Acting Strange
+   URL: https://ai.gopubby.com/the-day-model-started-acting-strange-8ba16ebe1998
+   Topics: Model Drift, AI Debugging, Data Drift, Distribution Shift
+   Publisher: AI Advances (Medium)
+
+6. Survival of the Fittest Programs: How Machines Evolve to Solve Problems with Genetic Programming
+   URL: https://pub.towardsai.net/survival-of-the-fittest-programs-how-machines-evolve-to-solve-problems-with-genetic-programming-740348256d2e
+   Topics: Genetic Programming, Evolutionary Algorithms, Symbolic Regression, AI
+   Publisher: Towards AI (Medium)
+
+7. Is Stock Price Prediction a Rabbit Hole?
+   URL: https://medium.datadriveninvestor.com/is-stock-price-prediction-a-rabbit-hole-heres-what-a-naive-model-taught-me-0f8914922d77
+   Topics: Stock Prediction, Financial ML, Time Series, Data Science
+   Publisher: Data Driven Investor (Medium)
+
+8. Simple Yet Powerful: Enhance More Potential in Static Data Visualization for Observing Patterns
+   URL: https://pub.towardsai.net/simple-yet-powerful-enhance-more-potential-in-static-data-visualization-for-observing-patterns-14862ead8c3b
+   Topics: Data Visualization, Static Charts, Pattern Recognition, Clustering
+   Publisher: Towards AI (Medium)
